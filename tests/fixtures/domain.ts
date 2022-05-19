@@ -1,10 +1,12 @@
-import { AggregateRoot, IEvent } from '../../src';
+import { AggregateRoot, Event } from '../../src';
 
-export class EngineReplaced implements IEvent {
+export class EngineReplaced extends Event {
   aggregateName = 'car';
   eventName = EngineReplaced.name;
 
-  constructor(public guid: string, public engineCode: string) {}
+  constructor(public guid: string, public engineCode: string) {
+    super(guid);
+  }
 }
 
 export class Car extends AggregateRoot {
