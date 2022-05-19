@@ -13,3 +13,6 @@ export * from './lib/message.interface';
 export * from './lib/read-model-facade.interface';
 export * from './lib/event-sourced-repository.interface';
 export * from './lib/repository.interface';
+export * from './lib/query.interface';
+export * from './lib/query-handler.interface';
+export * from './lib/query-bus.interface';
