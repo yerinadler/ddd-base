@@ -1,4 +1,5 @@
 export * from './lib/aggregate-root';
+export * from './lib/application-errors';
 export * from './lib/command';
 export * from './lib/command-handler.interface';
 export * from './lib/command.interface';
