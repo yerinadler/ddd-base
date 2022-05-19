@@ -1,6 +1,6 @@
 {
   "name": "@ayerin/ddd-base",
-  "version": "0.1.2",
+  "version": "1.0.0-rc1",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yerinadler/ddd-seedwork.git"
+    "url": "https://github.com/yerinadler/ddd-base.git"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.2",
