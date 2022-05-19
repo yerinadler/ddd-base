@@ -1,21 +1,17 @@
-import { AggregateRoot } from "../../src";
-import { IEvent } from "../../src";
+import { AggregateRoot, IEvent } from '../../src';
 
 export class EngineReplaced implements IEvent {
   aggregateName = 'car';
   eventName = EngineReplaced.name;
 
-  constructor(
-    public guid: string,
-    public engineCode: string
-  ) {}
+  constructor(public guid: string, public engineCode: string) {}
 }
 
 export class Car extends AggregateRoot {
   private _make: string;
   private _model: string;
   private _engineCode: string;
-  private _hasStarted: boolean = false;
+  private _hasStarted = false;
 
   get make() {
     return this._make;
@@ -33,12 +29,7 @@ export class Car extends AggregateRoot {
     return this._hasStarted;
   }
 
-  private constructor(
-    make: string,
-    model: string,
-    engineCode: string,
-    id = 'xxxxx'
-  ) {
+  private constructor(make: string, model: string, engineCode: string, id = 'xxxxx') {
     super(id);
     this._make = make;
     this._model = model;
@@ -54,11 +45,7 @@ export class Car extends AggregateRoot {
     this._engineCode = event.engineCode;
   }
 
-  public static create(
-    make: string,
-    model: string,
-    engineCode: string
-  ) {
+  public static create(make: string, model: string, engineCode: string) {
     return new Car(make, model, engineCode);
   }
 

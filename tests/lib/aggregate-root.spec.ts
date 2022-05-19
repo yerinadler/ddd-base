@@ -1,5 +1,4 @@
-import { AggregateRoot } from "../../src";
-import { Car, EngineReplaced } from "../fixtures/domain";
+import { Car, EngineReplaced } from '../fixtures/domain';
 
 describe('Aggregate Root', () => {
   describe('Object instantiation', () => {
@@ -13,14 +12,14 @@ describe('Aggregate Root', () => {
     it('Should instantiate with manually assigned id (to be used in repositories)', () => {
       const car = Car.createWithId('1234', 'honda', 'civic', 'e:hev');
       expect(car.guid).toBe('1234');
-    })
+    });
   });
   describe('Event management', () => {
     let car: Car;
 
     beforeEach(() => {
       car = Car.create('honda', 'civic', 'e:hev');
-    })
+    });
     it('Should keep track of events previously dispatched', () => {
       car.replaceEngine('i-vtec');
       expect(car.getUncommittedEvents()).toHaveLength(1);
@@ -37,4 +36,4 @@ describe('Aggregate Root', () => {
       expect(car.engineCode).toBe('i-vtec');
     });
   });
-})
+});

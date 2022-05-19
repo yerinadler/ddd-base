@@ -1,5 +1,5 @@
-import { IQuery } from './IQuery';
-import { IQueryHandler } from './IQueryHandler';
+import { IQueryHandler } from './query-handler.interface';
+import { IQuery } from './query.interface';
 
 export interface IQueryBus<BaseQuery extends IQuery = IQuery> {
   registerHandler(queryHandler: IQueryHandler<BaseQuery>): void;
