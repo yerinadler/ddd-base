@@ -36,4 +36,20 @@ describe('Aggregate Root', () => {
       expect(car.engineCode).toBe('i-vtec');
     });
   });
+
+  describe('Event name extraction', () => {
+    let car: Car;
+    let carSpy: jest.SpyInstance;
+    beforeEach(() => {
+      car = Car.create('bmw', '330e', 'XTM-9638');
+      carSpy = jest.spyOn(car, 'applyEngineReplaced');
+      car.replaceEngine('XTM-2000');
+    });
+    it('Should extract the correct handler name', () => {
+      expect(car.getUncommittedEvents()[0].eventName).toBe('car/engine-replaced');
+    });
+    it('Should call state transition with the correct event', () => {
+      expect(carSpy).toHaveBeenCalled();
+    });
+  });
 });

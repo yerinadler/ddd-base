@@ -2,7 +2,7 @@ import { AggregateRoot, Event } from '../../src';
 
 export class EngineReplaced extends Event {
   aggregateName = 'car';
-  eventName = EngineReplaced.name;
+  eventName = 'car/engine-replaced';
 
   constructor(public guid: string, public engineCode: string) {
     super(guid);
