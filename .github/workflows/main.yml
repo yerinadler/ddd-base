@@ -2,7 +2,7 @@ name: Publish to NPM
 on: push
 jobs:
   build:
-    name: Build
+    name: Build and Publish
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -16,8 +16,8 @@ jobs:
         run: yarn lint
       - name: Test
         run: yarn test
-      # - name: Publish to NPM
-      #   run: yarn publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to NPM
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       
