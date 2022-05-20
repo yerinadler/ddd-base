@@ -1,5 +1,8 @@
 name: Publish to NPM
-on: push
+on:
+  push:
+    tags:
+      - v*.*.*
 jobs:
   build:
     name: Build and Publish
